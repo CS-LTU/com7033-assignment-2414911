@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+{% block title %}Register - Stroke Secure{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">
+                    <i class="bi bi-person-plus"></i> Create Account
+                </h3>
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" 
+                               placeholder="Choose a username (min 3 characters)" required autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" 
+                               placeholder="Choose a password (min 6 characters)" required>
+                        <small class="form-text text-muted">Minimum 6 characters</small>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-person-plus"></i> Create Account
+                        </button>
+                    </div>
+                </form>
+                <hr>
+                <p class="text-center mb-0">
+                    Already have an account? <a href="/auth/login">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
