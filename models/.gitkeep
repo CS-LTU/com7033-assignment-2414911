@@ -1,0 +1,4 @@
+# Place your trained stroke prediction model file here
+# Expected filename: stroke_model.pkl
+# The model should be a pickle file containing a trained scikit-learn model
+
