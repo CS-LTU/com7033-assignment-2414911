@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Stroke Secure - Patient Management System{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 text-center">
+            <div class="mb-4">
+                <i class="bi bi-heart-pulse" style="font-size: 4rem; color: #0d6efd;"></i>
+            </div>
+            <h1 class="display-4 mb-3 fw-bold">
+                Stroke Secure
+            </h1>
+            <h2 class="h4 text-secondary mb-4">
+                Patient Management System
+            </h2>
+            <p class="lead text-muted mb-5">
+                A secure system designed for hospitals and healthcare professionals 
+                to record, analyze and manage patient data with precision and privacy.
+            </p>
+
+            <div class="row g-3 mb-5">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="bi bi-shield-lock" style="font-size: 2rem; color: #198754;"></i>
+                            <h5 class="card-title mt-3">Secure</h5>
+                            <p class="card-text">Password hashing and input validation for data security</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="bi bi-database" style="font-size: 2rem; color: #0d6efd;"></i>
+                            <h5 class="card-title mt-3">Dual Database</h5>
+                            <p class="card-text">SQLite for authentication, MongoDB for patient records</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="bi bi-person-check" style="font-size: 2rem; color: #ffc107;"></i>
+                            <h5 class="card-title mt-3">User-Friendly</h5>
+                            <p class="card-text">Intuitive interface for efficient patient management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if not current_user.is_authenticated %}
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="/auth/login" class="btn btn-primary btn-lg px-5">
+                    <i class="bi bi-box-arrow-in-right"></i> Login
+                </a>
+                <a href="/auth/register" class="btn btn-outline-primary btn-lg px-5">
+                    <i class="bi bi-person-plus"></i> Sign Up
+                </a>
+            </div>
+            {% else %}
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="/patients" class="btn btn-primary btn-lg px-5">
+                    <i class="bi bi-people"></i> View Patients
+                </a>
+                <a href="/patients/add" class="btn btn-outline-primary btn-lg px-5">
+                    <i class="bi bi-person-plus"></i> Add Patient
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
